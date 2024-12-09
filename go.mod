@@ -1,6 +1,6 @@
 module github.com/barista-run/barista
 
-go 1.19
+go 1.23.3
 
 require (
 	github.com/coreos/go-systemd/v22 v22.5.0
