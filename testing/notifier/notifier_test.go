@@ -18,8 +18,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soumya92/barista/base/notifier"
-	"github.com/soumya92/barista/testing/fail"
+	"github.com/barista-run/barista/base/notifier"
+	"github.com/barista-run/barista/testing/fail"
 )
 
 func TestAssertions(t *testing.T) {

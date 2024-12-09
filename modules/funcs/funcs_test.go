@@ -20,9 +20,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/outputs"
-	testBar "github.com/soumya92/barista/testing/bar"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/outputs"
+	testBar "github.com/barista-run/barista/testing/bar"
 
 	"github.com/stretchr/testify/require"
 )

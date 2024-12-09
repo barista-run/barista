@@ -19,7 +19,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soumya92/barista/testing/notifier"
+	"github.com/barista-run/barista/testing/notifier"
 	"github.com/stretchr/testify/require"
 )
 

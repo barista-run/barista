@@ -19,7 +19,7 @@ import (
 	"sync"
 	"syscall"
 
-	l "github.com/soumya92/barista/logging"
+	l "github.com/barista-run/barista/logging"
 
 	"github.com/vishvananda/netlink/nl"
 	"golang.org/x/sys/unix"

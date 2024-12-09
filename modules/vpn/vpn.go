@@ -16,11 +16,11 @@
 package vpn
 
 import (
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/base/watchers/netlink"
-	l "github.com/soumya92/barista/logging"
-	"github.com/soumya92/barista/outputs"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/base/watchers/netlink"
+	l "github.com/barista-run/barista/logging"
+	"github.com/barista-run/barista/outputs"
 )
 
 // State represents the vpn state.

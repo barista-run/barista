@@ -27,8 +27,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/soumya92/barista/pango"
-	"github.com/soumya92/barista/pango/icons"
+	"github.com/barista-run/barista/pango"
+	"github.com/barista-run/barista/pango/icons"
 
 	"github.com/spf13/afero"
 )

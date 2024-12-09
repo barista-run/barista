@@ -20,9 +20,9 @@ import (
 
 	godbus "github.com/godbus/dbus/v5"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/base/watchers/dbus"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/base/watchers/dbus"
 )
 
 // DeviceModule represents a Bluetooth devices bar module.

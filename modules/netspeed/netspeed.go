@@ -18,12 +18,12 @@ package netspeed
 import (
 	"time"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/format"
-	l "github.com/soumya92/barista/logging"
-	"github.com/soumya92/barista/outputs"
-	"github.com/soumya92/barista/timing"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/format"
+	l "github.com/barista-run/barista/logging"
+	"github.com/barista-run/barista/outputs"
+	"github.com/barista-run/barista/timing"
 
 	"github.com/martinlindhe/unit"
 	"github.com/vishvananda/netlink"

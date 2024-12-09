@@ -19,8 +19,8 @@
 package static
 
 import (
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/value"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/value"
 )
 
 // Module represents a module that displays static content on the bar.

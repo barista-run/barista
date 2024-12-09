@@ -18,11 +18,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soumya92/barista/bar"
-	dbusWatcher "github.com/soumya92/barista/base/watchers/dbus"
-	"github.com/soumya92/barista/outputs"
-	testBar "github.com/soumya92/barista/testing/bar"
-	"github.com/soumya92/barista/timing"
+	"github.com/barista-run/barista/bar"
+	dbusWatcher "github.com/barista-run/barista/base/watchers/dbus"
+	"github.com/barista-run/barista/outputs"
+	testBar "github.com/barista-run/barista/testing/bar"
+	"github.com/barista-run/barista/timing"
 	"golang.org/x/time/rate"
 
 	"github.com/godbus/dbus/v5"

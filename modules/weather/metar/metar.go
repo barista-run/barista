@@ -29,7 +29,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/soumya92/barista/modules/weather"
+	"github.com/barista-run/barista/modules/weather"
 
 	"github.com/martinlindhe/unit"
 )

@@ -18,13 +18,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/colors"
-	"github.com/soumya92/barista/outputs"
-	"github.com/soumya92/barista/pango"
-	"github.com/soumya92/barista/testing/fail"
-	"github.com/soumya92/barista/testing/module"
-	"github.com/soumya92/barista/timing"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/colors"
+	"github.com/barista-run/barista/outputs"
+	"github.com/barista-run/barista/pango"
+	"github.com/barista-run/barista/testing/fail"
+	"github.com/barista-run/barista/testing/module"
+	"github.com/barista-run/barista/timing"
 
 	"github.com/stretchr/testify/require"
 )
