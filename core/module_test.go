@@ -19,12 +19,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/outputs"
-	"github.com/soumya92/barista/sink"
-	testModule "github.com/soumya92/barista/testing/module"
-	"github.com/soumya92/barista/testing/notifier"
-	"github.com/soumya92/barista/timing"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/outputs"
+	"github.com/barista-run/barista/sink"
+	testModule "github.com/barista-run/barista/testing/module"
+	"github.com/barista-run/barista/testing/notifier"
+	"github.com/barista-run/barista/timing"
 
 	"github.com/stretchr/testify/require"
 )

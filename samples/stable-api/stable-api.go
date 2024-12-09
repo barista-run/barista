@@ -19,9 +19,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/soumya92/barista"
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/timing"
+	"github.com/barista-run/barista"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/timing"
 
 	"github.com/dustin/go-humanize"
 )

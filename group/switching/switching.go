@@ -20,12 +20,12 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/click"
-	"github.com/soumya92/barista/base/notifier"
-	"github.com/soumya92/barista/group"
-	l "github.com/soumya92/barista/logging"
-	"github.com/soumya92/barista/outputs"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/click"
+	"github.com/barista-run/barista/base/notifier"
+	"github.com/barista-run/barista/group"
+	l "github.com/barista-run/barista/logging"
+	"github.com/barista-run/barista/outputs"
 )
 
 // ButtonFunc produces outputs for buttons in a switching group.

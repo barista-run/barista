@@ -20,20 +20,20 @@ bar modules.
 For example, a time module might use strftime-style format strings,
 which don't allow for colours or borders. You can add those using reformat:
 
- t := localtime.New(...)
- r := reformat.New(t).Format(func(o bar.Output) bar.Output {
-   return o.Background("red").Padding(20)
- })
+	t := localtime.New(...)
+	r := reformat.New(t).Format(func(o bar.Output) bar.Output {
+	  return o.Background("red").Padding(20)
+	})
 */
 package reformat
 
 import (
 	"sync/atomic"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/core"
-	l "github.com/soumya92/barista/logging"
-	"github.com/soumya92/barista/sink"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/core"
+	l "github.com/barista-run/barista/logging"
+	"github.com/barista-run/barista/sink"
 )
 
 // FormatFunc takes the module's output and returns a modified version.

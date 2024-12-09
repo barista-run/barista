@@ -25,7 +25,7 @@ package notifier
 import (
 	"sync"
 
-	l "github.com/soumya92/barista/logging"
+	l "github.com/barista-run/barista/logging"
 )
 
 // New constructs a new notifier. It returns a func that triggers a notification,

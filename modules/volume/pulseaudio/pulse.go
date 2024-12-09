@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/modules/volume"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/modules/volume"
 
 	"github.com/jfreymuth/pulse/proto"
 )

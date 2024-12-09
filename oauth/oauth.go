@@ -31,7 +31,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	l "github.com/soumya92/barista/logging"
+	l "github.com/barista-run/barista/logging"
 
 	"golang.org/x/oauth2"
 )

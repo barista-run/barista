@@ -39,10 +39,10 @@ package split
 import (
 	"sync"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/core"
-	"github.com/soumya92/barista/sink"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/core"
+	"github.com/barista-run/barista/sink"
 )
 
 type module struct {

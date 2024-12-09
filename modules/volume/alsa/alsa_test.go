@@ -15,16 +15,16 @@
 package alsa
 
 import (
+	"reflect"
 	"testing"
 	"time"
 	"unsafe"
-	"reflect"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/modules/volume"
-	testBar "github.com/soumya92/barista/testing/bar"
-	"github.com/soumya92/barista/testing/notifier"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/modules/volume"
+	testBar "github.com/barista-run/barista/testing/bar"
+	"github.com/barista-run/barista/testing/notifier"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/time/rate"
 )

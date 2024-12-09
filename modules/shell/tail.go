@@ -19,9 +19,9 @@ import (
 	"os/exec"
 	"syscall"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/outputs"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/outputs"
 )
 
 // TailModule represents a bar.Module that displays the last line of output from

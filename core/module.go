@@ -20,10 +20,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/notifier"
-	l "github.com/soumya92/barista/logging"
-	"github.com/soumya92/barista/timing"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/notifier"
+	l "github.com/barista-run/barista/logging"
+	"github.com/barista-run/barista/timing"
 )
 
 // Module represents a bar.Module wrapped with core barista functionality.

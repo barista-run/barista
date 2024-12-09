@@ -19,12 +19,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/soumya92/barista/bar"
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/base/watchers/localtz"
-	l "github.com/soumya92/barista/logging"
-	"github.com/soumya92/barista/outputs"
-	"github.com/soumya92/barista/timing"
+	"github.com/barista-run/barista/bar"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/base/watchers/localtz"
+	l "github.com/barista-run/barista/logging"
+	"github.com/barista-run/barista/outputs"
+	"github.com/barista-run/barista/timing"
 )
 
 // Module represents a clock bar module. It supports setting the click handler,

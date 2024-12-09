@@ -29,12 +29,12 @@ fi
 
 echo "Test: Running $NPAR in parallel"
 # Run tests with coverage for all barista packages
-go list ./... \
-| grep -v /samples/ \
-| sed "s|_$PWD|.|" \
-| tac \
-| xargs -n1 -P$NPAR -IPKG sh -c \
-'for try in `seq 1 3`; do 
+go list ./... |
+	grep -v /samples/ |
+	sed "s|_$PWD|.|" |
+	tac |
+	xargs -n1 -P$NPAR -IPKG sh -c \
+		'for try in `seq 1 3`; do 
 	go test \
 		-timeout 90s \
 		-coverprofile=profiles/$(echo "PKG" | sed -e "s|./||" -e "s|/|_|g").out \
@@ -46,7 +46,7 @@ exit 1'
 
 echo "Test: Logging with -tags baristadebuglog"
 # Debug log tests need the build tag, otherwise the nop versions will be used.
-go test -tags baristadebuglog -coverprofile=profiles/logging_real.out -covermode=atomic github.com/soumya92/barista/logging
+go test -tags baristadebuglog -coverprofile=profiles/logging_real.out -covermode=atomic github.com/barista-run/barista/logging
 
 # Remove all _capi.go coverage since those will intentionally not be tested.
 for profile in profiles/*.out; do
@@ -57,8 +57,8 @@ done
 # ./test.sh,
 #     go tool cover -html=c.out
 # will show a coverage report instead of complaining about a bad format.
-grep -E '^mode: \w+$' "$(find profiles/ -name '*.out' -print -quit)" > c.out
-grep -hEv '^(mode: \w+)?$' profiles/*.out >> c.out
+grep -E '^mode: \w+$' "$(find profiles/ -name '*.out' -print -quit)" >c.out
+grep -hEv '^(mode: \w+)?$' profiles/*.out >>c.out
 rm -rf profiles/
 
 echo "Test: Samples"

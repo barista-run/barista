@@ -23,9 +23,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/soumya92/barista/base/value"
-	"github.com/soumya92/barista/base/watchers/file"
-	l "github.com/soumya92/barista/logging"
+	"github.com/barista-run/barista/base/value"
+	"github.com/barista-run/barista/base/watchers/file"
+	l "github.com/barista-run/barista/logging"
 )
 
 // Overridden in tests.

@@ -20,8 +20,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/soumya92/barista/base/watchers/localtz"
-	l "github.com/soumya92/barista/logging"
+	"github.com/barista-run/barista/base/watchers/localtz"
+	l "github.com/barista-run/barista/logging"
 )
 
 var _ schedulerImpl = &testModeScheduler{}

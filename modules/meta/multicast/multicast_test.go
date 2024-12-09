@@ -17,9 +17,9 @@ package multicast
 import (
 	"testing"
 
-	"github.com/soumya92/barista/outputs"
-	testBar "github.com/soumya92/barista/testing/bar"
-	testModule "github.com/soumya92/barista/testing/module"
+	"github.com/barista-run/barista/outputs"
+	testBar "github.com/barista-run/barista/testing/bar"
+	testModule "github.com/barista-run/barista/testing/module"
 )
 
 func TestMulticast(t *testing.T) {
