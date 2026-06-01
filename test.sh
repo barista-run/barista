@@ -36,6 +36,7 @@ go list ./... |
 	xargs -n1 -P$NPAR -IPKG sh -c \
 		'for try in `seq 1 3`; do 
 	go test \
+		-race \
 		-timeout 90s \
 		-coverprofile=profiles/$(echo "PKG" | sed -e "s|./||" -e "s|/|_|g").out \
 		-covermode=atomic \
@@ -46,7 +47,7 @@ exit 1'
 
 echo "Test: Logging with -tags baristadebuglog"
 # Debug log tests need the build tag, otherwise the nop versions will be used.
-go test -tags baristadebuglog -coverprofile=profiles/logging_real.out -covermode=atomic github.com/barista-run/barista/logging
+go test -race -tags baristadebuglog -coverprofile=profiles/logging_real.out -covermode=atomic github.com/barista-run/barista/logging
 
 # Remove all _capi.go coverage since those will intentionally not be tested.
 for profile in profiles/*.out; do
@@ -64,4 +65,4 @@ rm -rf profiles/
 echo "Test: Samples"
 # Run tests only for samples.
 # This is just to make sure that all samples compile.
-go test ./samples/...
+go test -race ./samples/...
