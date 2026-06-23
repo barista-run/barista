@@ -16,6 +16,7 @@ package shell
 
 import (
 	"bufio"
+	"os"
 	"os/exec"
 	"syscall"
 
@@ -29,6 +30,7 @@ import (
 type TailModule struct {
 	cmd  string
 	args []string
+	env  []string
 	outf value.Value // of func(string) bar.Output
 }
 
@@ -44,7 +46,7 @@ func Tail(cmd string, args ...string) *TailModule {
 
 // Stream starts the module.
 func (m *TailModule) Stream(s bar.Sink) {
-	cmd := exec.Command(m.cmd, m.args...)
+	cmd := m.command()
 	// Prevent SIGUSR for bar pause/resume from propagating to the
 	// child process. Some commands don't play nice with signals.
 	cmd.SysProcAttr = &syscall.SysProcAttr{
@@ -85,8 +87,22 @@ func (m *TailModule) Stream(s bar.Sink) {
 	}
 }
 
+func (m *TailModule) command() *exec.Cmd {
+	cmd := exec.Command(m.cmd, m.args...)
+	if len(m.env) > 0 {
+		cmd.Env = append(os.Environ(), m.env...)
+	}
+	return cmd
+}
+
 // Output sets the output format for each line of output.
 func (m *TailModule) Output(format func(string) bar.Output) *TailModule {
 	m.outf.Set(format)
+	return m
+}
+
+// WithEnv appends environment variables for the command in KEY=value format.
+func (m *TailModule) WithEnv(env ...string) *TailModule {
+	m.env = append(m.env, env...)
 	return m
 }

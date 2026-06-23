@@ -80,3 +80,12 @@ func TestUpdate(t *testing.T) {
 	m.Refresh()
 	testBar.NextOutput("on refresh").AssertText([]string{"*bar*"})
 }
+
+func TestWithEnv(t *testing.T) {
+	testBar.New(t)
+	m := New("sh", "-c", "printf %s \"$BARISTA_SHELL_TEST_ENV\"").WithEnv(
+		"BARISTA_SHELL_TEST_ENV=from-module",
+	)
+	testBar.Run(m)
+	testBar.NextOutput().AssertText([]string{"from-module"}, "uses command env")
+}

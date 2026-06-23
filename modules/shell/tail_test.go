@@ -59,3 +59,12 @@ func TestTailInvalidCommand(t *testing.T) {
 	testBar.NextOutput().AssertError(
 		"when starting an invalid command")
 }
+
+func TestTailWithEnv(t *testing.T) {
+	testBar.New(t)
+	tail := Tail("sh", "-c", "printf '%s\\n' \"$BARISTA_TAIL_TEST_ENV\"").WithEnv(
+		"BARISTA_TAIL_TEST_ENV=from-tail-module",
+	)
+	testBar.Run(tail)
+	testBar.NextOutput().AssertText([]string{"from-tail-module"}, "uses command env")
+}

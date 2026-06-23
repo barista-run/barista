@@ -21,6 +21,7 @@ e.g. whoami, date +%s.
 package shell
 
 import (
+	"os"
 	"os/exec"
 	"strings"
 	"time"
@@ -36,6 +37,7 @@ import (
 type Module struct {
 	cmd       string
 	args      []string
+	env       []string
 	outf      value.Value // of func(string) bar.Output
 	notifyCh  <-chan struct{}
 	notifyFn  func()
@@ -55,7 +57,7 @@ func New(cmd string, args ...string) *Module {
 
 // Stream starts the module.
 func (m *Module) Stream(s bar.Sink) {
-	out, err := exec.Command(m.cmd, m.args...).Output()
+	out, err := m.command().Output()
 	outf := m.outf.Get().(func(string) bar.Output)
 	for {
 		if s.Error(err) {
@@ -66,11 +68,19 @@ func (m *Module) Stream(s bar.Sink) {
 		case <-m.outf.Next():
 			outf = m.outf.Get().(func(string) bar.Output)
 		case <-m.notifyCh:
-			out, err = exec.Command(m.cmd, m.args...).Output()
+			out, err = m.command().Output()
 		case <-m.scheduler.C:
-			out, err = exec.Command(m.cmd, m.args...).Output()
+			out, err = m.command().Output()
 		}
 	}
+}
+
+func (m *Module) command() *exec.Cmd {
+	cmd := exec.Command(m.cmd, m.args...)
+	if len(m.env) > 0 {
+		cmd.Env = append(os.Environ(), m.env...)
+	}
+	return cmd
 }
 
 // Output sets the output format. The format func will be passed the entire
@@ -78,6 +88,12 @@ func (m *Module) Stream(s bar.Sink) {
 // by lines, see Tail().
 func (m *Module) Output(format func(string) bar.Output) *Module {
 	m.outf.Set(format)
+	return m
+}
+
+// WithEnv appends environment variables for the command in KEY=value format.
+func (m *Module) WithEnv(env ...string) *Module {
+	m.env = append(m.env, env...)
 	return m
 }
 
