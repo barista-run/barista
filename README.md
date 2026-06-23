@@ -19,7 +19,7 @@ limitations under the License.
 
 Barista is an i3 status bar written in golang.
 
-**This is not an official Google product**
+It's a maintained fork of [soumya's barista](https://github.com/soumya92/barista), which is no longer maintained.
 
 ## Features
 
