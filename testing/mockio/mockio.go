@@ -140,6 +140,8 @@ type Readable struct {
 	// For simulation, if this is set the next read will return
 	// this error instead of behaving normally.
 	nextError error
+	// Set while a reader is blocked waiting for input or an injected error.
+	waiting bool
 }
 
 // Read satisfies the io.Reader interface.
@@ -151,16 +153,19 @@ func (r *Readable) Read(out []byte) (n int, e error) {
 		r.mutex.Unlock()
 		return
 	}
-	len := r.buffer.Len()
-	if len == 0 {
+	wasWaiting := false
+	if r.buffer.Len() == 0 {
+		r.waiting = true
+		wasWaiting = true
 		r.mutex.Unlock()
 		<-r.available
 		r.mutex.Lock()
+		r.waiting = false
 		if r.nextError != nil {
 			e = r.nextError
 			r.nextError = nil
 			r.mutex.Unlock()
-			if len == 0 {
+			if wasWaiting {
 				r.consumed <- struct{}{}
 			}
 			return
@@ -168,7 +173,7 @@ func (r *Readable) Read(out []byte) (n int, e error) {
 	}
 	n, e = r.buffer.Read(out)
 	r.mutex.Unlock()
-	if len == 0 {
+	if wasWaiting {
 		// len == 0 means that we got a signal from available.
 		// Which means that signalWrite() is now waiting
 		// for a signal on consumed.
@@ -211,10 +216,12 @@ func (r *Readable) ShouldError(e error) {
 
 // signalWrite signals that data was written, and waits for it to be consumed.
 func (r *Readable) signalWrite() {
-	select {
-	case r.available <- struct{}{}:
+	r.mutex.Lock()
+	waiting := r.waiting
+	r.mutex.Unlock()
+	if waiting {
+		r.available <- struct{}{}
 		<-r.consumed
-	default:
 	}
 }
 
